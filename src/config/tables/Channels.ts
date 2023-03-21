@@ -10,17 +10,13 @@ export const createTable = async (db: sqlite3.Database) => {
 
 export const registerChannel = async (db: sqlite3.Database, channelID: string, region: number) => {
   return new Promise((resolve, reject) => {
-    db.run(
-      `INSERT INTO channels (channelID, region) VALUES (?, ?)`,
-      [channelID, region],
-      (err) => {
-        if (err) {
-          reject(err);
-        } else {
-          resolve(void 0);
-        }
+    db.run(`INSERT INTO channels (channelID, region) VALUES (?, ?)`, [channelID, region], (err) => {
+      if (err) {
+        reject(err);
+      } else {
+        resolve(void 0);
       }
-    );
+    });
   });
 };
 
@@ -48,13 +44,7 @@ export const getChannel = async (db: sqlite3.Database, channelID: string) => {
   });
 };
 
-
-
 export default {
   createTable,
-  actions: [
-    registerChannel,
-    unregisterChannel,
-    getChannel
-  ]
+  actions: [registerChannel, unregisterChannel, getChannel]
 };

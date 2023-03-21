@@ -18,7 +18,7 @@ export default {
     //@ts-ignore
     const region = interaction.options.getNumber('region') as Number;
 
-    const db = getDb(); 
+    const db = getDb();
 
     const channelID = interaction.channelId;
     const channel = interaction.channel as TextChannel;
@@ -32,6 +32,7 @@ export default {
             content: `Dev-Hunt est déjà actif sur ce channel - ${channelName}!`,
             ephemeral: true
           });
+          return;
         } else {
           db.registerChannel(channelID, region).then(async () => {
             await interaction.reply({
