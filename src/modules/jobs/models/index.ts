@@ -26,7 +26,7 @@ export const sendJobOffers = async (client: Client) => {
 
     const jobs = await fetchJobs(params);
 
-    db.updateLastFetch({channelID: channel.channelID,lastFetch: Date.now()});
+    db.updateLastFetch({ channelID: channel.channelID, lastFetch: Date.now() });
 
     jobs.forEach((job) => {
       const embed = createEmbedJob(job);
