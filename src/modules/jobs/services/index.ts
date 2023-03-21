@@ -11,7 +11,7 @@ export const fetchJobs = async (params: fetchJobsParams): Promise<Job[]> => {
 
   const dateMin = new Date(params.lastFetch).toISOString();
 
-  console.log(params);
+  await new Promise((resolve) => setTimeout(resolve, 1000));
 
   // fetchJobs from api
   const resultats = (await axiosPoleEmploi
