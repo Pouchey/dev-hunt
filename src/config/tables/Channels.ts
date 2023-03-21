@@ -36,10 +36,25 @@ export const unregisterChannel = async (db: sqlite3.Database, channelID: string)
   });
 };
 
+export const getChannel = async (db: sqlite3.Database, channelID: string) => {
+  return new Promise((resolve, reject) => {
+    db.get(`SELECT * FROM channels WHERE channelID = ?`, [channelID], (err, row) => {
+      if (err) {
+        reject(err);
+      } else {
+        resolve(row);
+      }
+    });
+  });
+};
+
+
+
 export default {
   createTable,
   actions: [
     registerChannel,
-    unregisterChannel
+    unregisterChannel,
+    getChannel
   ]
 };

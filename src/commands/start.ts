@@ -18,7 +18,7 @@ export default {
     //@ts-ignore
     const region = interaction.options.getNumber('region') as Number;
 
-    const db = getDb();
+    const db = getDb(); 
 
     const channelID = interaction.channelId;
     const channel = interaction.channel as TextChannel;
