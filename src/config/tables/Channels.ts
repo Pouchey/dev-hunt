@@ -14,13 +14,12 @@ export const createTable = async (db: sqlite3.Database) => {
 
 export const registerChannel = async (
   db: sqlite3.Database,
-  channelID: string,
-  departement: number
+  args: { channelID: string; departement: number }
 ) => {
   return new Promise((resolve, reject) => {
     db.run(
       `INSERT INTO channels (channelID, departement) VALUES (?, ?)`,
-      [channelID, departement],
+      [args.channelID, args.departement],
       (err) => {
         if (err) {
           reject(err);
