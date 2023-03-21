@@ -25,7 +25,7 @@ export const createActions = async (db: sqlite3.Database) => {
       return Promise.all(
         actions.map((action: any) => {
           // @ts-ignore
-          db[action.name] = (args: any) => action(db, ...args);
+          db[action.name] = (args: any) => action(db, args);
         })
       );
     })

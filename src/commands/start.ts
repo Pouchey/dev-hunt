@@ -34,7 +34,7 @@ export default {
           });
           return;
         } else {
-          db.registerChannel(channelID, departement).then(async () => {
+          db.registerChannel({channelID, departement}).then(async () => {
             await interaction.reply({
               content: ` Dev-Hunt a été activé avec succès sur ce channel - ${channelName}!`,
               ephemeral: true
