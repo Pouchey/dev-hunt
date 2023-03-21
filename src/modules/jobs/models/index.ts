@@ -9,7 +9,7 @@ import { fetchJobsParams } from '../types';
 export const sendJobOffers = async (client: Client) => {
   const db = getDb();
 
-  const channels = await db.getChannels() as Channel[];
+  const channels = (await db.getChannels()) as Channel[];
 
   channels.forEach(async (channel) => {
     const chan = (await client.channels.fetch(channel.channelID)) as TextChannel;
@@ -19,11 +19,10 @@ export const sendJobOffers = async (client: Client) => {
       return;
     }
 
-
-    const params: fetchJobsParams= {
+    const params: fetchJobsParams = {
       departement: channel.departement,
       lastFetch: channel.lastFetch
-    }
+    };
 
     const jobs = await fetchJobs(params);
 

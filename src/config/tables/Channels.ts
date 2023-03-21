@@ -1,6 +1,5 @@
 import sqlite3 from 'sqlite3';
 
-
 // double primary key channelID and departement
 
 export const createTable = async (db: sqlite3.Database) => {
@@ -13,15 +12,23 @@ export const createTable = async (db: sqlite3.Database) => {
   )`);
 };
 
-export const registerChannel = async (db: sqlite3.Database, channelID: string, departement: number) => {
+export const registerChannel = async (
+  db: sqlite3.Database,
+  channelID: string,
+  departement: number
+) => {
   return new Promise((resolve, reject) => {
-    db.run(`INSERT INTO channels (channelID, departement) VALUES (?, ?)`, [channelID, departement], (err) => {
-      if (err) {
-        reject(err);
-      } else {
-        resolve(void 0);
+    db.run(
+      `INSERT INTO channels (channelID, departement) VALUES (?, ?)`,
+      [channelID, departement],
+      (err) => {
+        if (err) {
+          reject(err);
+        } else {
+          resolve(void 0);
+        }
       }
-    });
+    );
   });
 };
 

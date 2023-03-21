@@ -7,13 +7,13 @@ export const createEmbedJob = (job: Job) => {
     .setDescription(job.description)
     .setURL(job.url)
     .addFields([
-      { name: 'Salaire', value: job.pricing  },
+      { name: 'Salaire', value: job.pricing },
       { name: 'Lieu', value: job.location },
-      { name: 'Expérience', value: job.experience },
+      { name: 'Expérience', value: job.experience }
     ])
     .setFooter({
-      text: `Entreprise : ${job.company}`,
-    })
+      text: `Entreprise : ${job.company}`
+    });
 
   return embed;
 };
