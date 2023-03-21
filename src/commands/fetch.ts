@@ -5,6 +5,7 @@ import {
   TextChannel
 } from 'discord.js';
 import { getDb } from '..';
+import { createEmbedJob } from '../modules/jobs/embeds/Job';
 import { fetchJobs } from '../modules/jobs/services';
 import { fetchJobsParams } from '../modules/jobs/types';
 import { Channel } from '../types';
@@ -41,7 +42,10 @@ export default {
     db.updateLastFetch({ channelID, lastFetch: Date.now() });
 
     jobs.forEach((job) => {
-      channel.send(job.url);
+      const embed = createEmbedJob(job);
+      channel.send({
+        embeds: [embed]
+      });
     });
 
     await interaction.reply({
