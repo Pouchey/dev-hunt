@@ -5,4 +5,4 @@ export type Job = {
   url: string;
   company: string;
   companyLogo: string;
-}
+};
