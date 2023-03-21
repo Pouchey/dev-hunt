@@ -13,7 +13,6 @@ poleEmploi.interceptors.request.use(
       .then((response) => response.data.access_token);
 
     config.headers['Authorization'] = `Bearer ${token}`;
-
     return config;
   },
   (error: Error) => Promise.reject(error)
