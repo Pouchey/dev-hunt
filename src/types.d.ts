@@ -12,6 +12,12 @@ export interface Command {
   execute: (interaction: CommandInteraction) => Promise<void>;
 }
 
+export interface Channel {
+  channelID: string;
+  region: number;
+  lastFetch: number;
+}
+
 declare global {
   namespace NodeJS {
     interface ProcessEnv {

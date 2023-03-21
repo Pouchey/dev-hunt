@@ -1,5 +1,5 @@
 import { EmbedBuilder } from 'discord.js';
-import { Job } from '../type';
+import { Job } from '../types';
 
 export const createEmbedJob = (Job: Job) => {
   const embed = new EmbedBuilder()
@@ -8,7 +8,5 @@ export const createEmbedJob = (Job: Job) => {
     .setURL(Job.url)
     .setThumbnail(Job.companyLogo);
 
-  return {
-    embed
-  };
+  return embed;
 };
