@@ -11,12 +11,12 @@ export default {
     .setName('start')
     .setDescription("Commence la diffusion des offres d'emploi sur le channel.")
     .addNumberOption((option) =>
-      option.setName('region').setDescription('Région de recherche de travail').setRequired(true)
+      option.setName('departement').setDescription(' Département de recherche').setRequired(true)
     )
     .setDefaultMemberPermissions(PermissionFlagsBits.Administrator),
   execute: async (interaction: CommandInteraction) => {
     //@ts-ignore
-    const region = interaction.options.getNumber('region') as Number;
+    const departement = interaction.options.getNumber('departement') as Number;
 
     const db = getDb();
 
@@ -34,7 +34,7 @@ export default {
           });
           return;
         } else {
-          db.registerChannel(channelID, region).then(async () => {
+          db.registerChannel(channelID, departement).then(async () => {
             await interaction.reply({
               content: ` Dev-Hunt a été activé avec succès sur ce channel - ${channelName}!`,
               ephemeral: true

@@ -14,7 +14,7 @@ export interface Command {
 
 export interface Channel {
   channelID: string;
-  region: number;
+  departement: number;
   lastFetch: number;
 }
 
