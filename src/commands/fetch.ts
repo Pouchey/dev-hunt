@@ -38,7 +38,9 @@ export default {
 
     const jobs = await fetchJobs(params);
 
-    db.updateLastFetch(channelID, Date.now());
+    db.updateLastFetch(
+      {channelID, 
+      lastFetch:Date.now()});
 
     jobs.forEach((job) => {
       channel.send(job.url);

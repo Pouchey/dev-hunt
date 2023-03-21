@@ -69,13 +69,12 @@ export const getChannel = async (db: sqlite3.Database, channelID: string) => {
 
 export const updateLastFetch = async (
   db: sqlite3.Database,
-  channelID: string,
-  lastFetch: number
+  args: { channelID: string; lastFetch: number }
 ) => {
   return new Promise((resolve, reject) => {
     db.run(
       `UPDATE channels SET lastFetch = ? WHERE channelID = ?`,
-      [lastFetch, channelID],
+      [args.lastFetch, args.channelID],
       (err) => {
         if (err) {
           reject(err);
