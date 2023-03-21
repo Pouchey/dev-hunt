@@ -4,6 +4,7 @@ import { fetchJobs } from '../services';
 
 import { createEmbedJob } from '../embeds/Job';
 import { Channel } from '../../../types';
+import { fetchJobsParams } from '../types';
 
 export const sendJobOffers = async (client: Client) => {
   const db = getDb();
@@ -19,7 +20,7 @@ export const sendJobOffers = async (client: Client) => {
     }
 
 
-    const params = {
+    const params: fetchJobsParams= {
       departement: channel.departement,
       lastFetch: channel.lastFetch
     }

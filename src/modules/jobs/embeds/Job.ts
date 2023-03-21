@@ -1,12 +1,19 @@
 import { EmbedBuilder } from 'discord.js';
 import { Job } from '../types';
 
-export const createEmbedJob = (Job: Job) => {
+export const createEmbedJob = (job: Job) => {
   const embed = new EmbedBuilder()
-    .setTitle(Job.title)
-    .setDescription(Job.description)
-    .setURL(Job.url)
-    .setThumbnail(Job.companyLogo);
+    .setTitle(job.title)
+    .setDescription(job.description)
+    .setURL(job.url)
+    .addFields([
+      { name: 'Salaire', value: job.pricing  },
+      { name: 'Lieu', value: job.location },
+      { name: 'Expérience', value: job.experience },
+    ])
+    .setFooter({
+      text: `Entreprise : ${job.company}`,
+    })
 
   return embed;
 };

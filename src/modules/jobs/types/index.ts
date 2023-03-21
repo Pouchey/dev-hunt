@@ -4,13 +4,12 @@ export type Job = {
   description: string;
   url: string;
   company: string;
-  companyLogo: string;
   location: string;
   pricing: string;
   experience: string;
 };
 
 export type fetchJobsParams = {
-  departement: string;
+  departement: number;
   lastFetch: number;
 };
