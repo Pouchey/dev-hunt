@@ -18,7 +18,13 @@ export const sendJobOffers = async (client: Client) => {
       return;
     }
 
-    const jobs = await fetchJobs(channel.departement, channel.lastFetch);
+
+    const params = {
+      departement: channel.departement,
+      lastFetch: channel.lastFetch
+    }
+
+    const jobs = await fetchJobs(params);
 
     db.updateLastFetch(channel.channelID, Date.now());
 
