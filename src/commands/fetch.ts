@@ -46,6 +46,8 @@ export default {
       channel.send({});
     });
 
+
+
     await interaction.reply({
       content: `Les offres d'emploi ont été envoyées dans le channel ${channelName}`,
       ephemeral: true
