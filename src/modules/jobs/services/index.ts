@@ -26,14 +26,16 @@ export const fetchJobs = async (params: fetchJobsParams): Promise<Job[]> => {
     })
     .then((response) => response.data.resultats)) as any;
 
-  return resultats.map((resultat: any) => ({
-    id: resultat.id,
-    title: resultat.intitule,
-    description: resultat.description,
-    url: 'https://candidat.pole-emploi.fr/offres/recherche/detail/' + resultat.id,
-    company: resultat.entreprise.nom || 'Non renseigné',
-    location: resultat.lieuTravail.libelle,
-    pricing: resultat.salaire.libelle,
-    experience: resultat.experienceLibelle
-  }));
+  return !resultats
+    ? []
+    : resultats.map((resultat: any) => ({
+        id: resultat.id,
+        title: resultat.intitule,
+        description: resultat.description,
+        url: 'https://candidat.pole-emploi.fr/offres/recherche/detail/' + resultat.id,
+        company: resultat.entreprise.nom || 'Non renseigné',
+        location: resultat.lieuTravail.libelle,
+        pricing: resultat.salaire.libelle,
+        experience: resultat.experienceLibelle
+      }));
 };
