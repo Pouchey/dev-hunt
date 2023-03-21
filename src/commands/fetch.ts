@@ -43,9 +43,10 @@ export default {
 
     jobs.forEach((job) => {
       const embed = createEmbedJob(job);
-      channel.send({});
+      channel.send({
+        embeds: [embed]
+      });
     });
-
 
 
     await interaction.reply({
