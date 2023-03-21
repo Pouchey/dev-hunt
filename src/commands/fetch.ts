@@ -21,7 +21,7 @@ export default {
     const channel = interaction.channel as TextChannel;
     const channelName = channel.name;
 
-    const chan = db.getChannel(channelID) as Channel;
+    const chan = (await db.getChannel(channelID)) as Channel;
 
     if (!chan) {
       await interaction.reply({
