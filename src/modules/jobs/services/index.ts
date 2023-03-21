@@ -13,7 +13,7 @@ export const fetchJobs = async (params: fetchJobsParams): Promise<Job[]> => {
         departement: params.departement,
         sort: 2, // par date de puclication croissante
         minCreationDate: dateMin.toString(),
-        maxCreationDate: dateMax.toString(),
+        maxCreationDate: dateMax.toString()
       }
     })
     .then((response) => JSON.parse(response.data))
