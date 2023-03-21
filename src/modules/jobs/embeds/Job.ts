@@ -2,6 +2,8 @@ import { EmbedBuilder } from 'discord.js';
 import { Job } from '../types';
 
 export const createEmbedJob = (job: Job) => {
+  console.log(job);
+
   const embed = new EmbedBuilder()
     .setTitle(job.title)
     .setDescription(job.description)

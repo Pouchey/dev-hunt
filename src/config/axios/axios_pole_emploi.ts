@@ -4,6 +4,11 @@ import { poleEmploi } from './api_pole_emploi';
 poleEmploi.interceptors.request.use(
   async (config) => {
     const token = await axios
+      .create({
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded'
+        }
+      })
       .post('https://entreprise.pole-emploi.fr/connexion/oauth2/access_token?realm=%2Fpartenaire', {
         grant_type: 'client_credentials',
         client_id: process.env.POLE_EMPLOI_CLIENT_ID,
