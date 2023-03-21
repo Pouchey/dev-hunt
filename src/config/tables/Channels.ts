@@ -1,10 +1,14 @@
 import sqlite3 from 'sqlite3';
 
+
+// double primary key channelID and departement
+
 export const createTable = async (db: sqlite3.Database) => {
   db.run(`CREATE TABLE IF NOT EXISTS channels (
-    channelID TEXT PRIMARY KEY NOT NULL,
-    departement INTEGER PRIMARY KEY NOT NULL,
-    lastFetch INTEGER NOT NULL
+    channelID TEXT NOT NULL,
+    departement INTEGER NOT NULL,
+    lastFetch INTEGER NOT NULL,
+    PRIMARY KEY (channelID, departement)
 
   )`);
 };
