@@ -44,6 +44,18 @@ export const unregisterChannel = async (db: sqlite3.Database, channelID: string)
   });
 };
 
+export const getChannels = async (db: sqlite3.Database) => {
+  return new Promise((resolve, reject) => {
+    db.all(`SELECT * FROM channels`, (err, rows) => {
+      if (err) {
+        reject(err);
+      } else {
+        resolve(rows);
+      }
+    });
+  });
+};
+
 export const getChannel = async (db: sqlite3.Database, channelID: string) => {
   return new Promise((resolve, reject) => {
     db.get(`SELECT * FROM channels WHERE channelID = ?`, [channelID], (err, row) => {
@@ -78,5 +90,5 @@ export const updateLastFetch = async (
 
 export default {
   createTable,
-  actions: [registerChannel, unregisterChannel, getChannel, updateLastFetch]
+  actions: [registerChannel, unregisterChannel, getChannel, getChannels, updateLastFetch]
 };
