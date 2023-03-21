@@ -24,8 +24,7 @@ export const fetchJobs = async (params: fetchJobsParams): Promise<Job[]> => {
         maxCreationDate: reformatISODate(dateMax)
       }
     })
-    .then((response) => JSON.parse(response.data))
-    .then((data) => data.resultats)) as any;
+    .then((response) => response.data.resultats)) as any;
 
   return resultats.map((resultat: any) => ({
     id: resultat.id,
