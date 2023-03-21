@@ -3,8 +3,9 @@ import sqlite3 from 'sqlite3';
 export const createTable = async (db: sqlite3.Database) => {
   db.run(`CREATE TABLE IF NOT EXISTS channels (
     channelID TEXT PRIMARY KEY NOT NULL,
-    departement PRIMARY KEY INTEGER NOT NULL,
-    lastFetch INTEGER NOT NULL DEFAULT 0
+    departement INTEGER PRIMARY KEY NOT NULL,
+    lastFetch INTEGER NOT NULL
+
   )`);
 };
 
