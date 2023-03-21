@@ -6,7 +6,7 @@ export const createTable = async (db: sqlite3.Database) => {
   db.run(`CREATE TABLE IF NOT EXISTS channels (
     channelID TEXT NOT NULL,
     departement INTEGER NOT NULL,
-    lastFetch INTEGER NOT NULL,
+    lastFetch INTEGER NOT NULL DEFAULT 0,
     PRIMARY KEY (channelID, departement)
 
   )`);
