@@ -43,10 +43,10 @@ export default {
 
     jobs.forEach((job) => {
       const embed = createEmbedJob(job);
-      channel.send({
-        embeds: [embed]
-      });
+      channel.send({});
     });
+
+
 
     await interaction.reply({
       content: `Les offres d'emploi ont été envoyées dans le channel ${channelName}`,
