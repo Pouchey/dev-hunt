@@ -12,12 +12,10 @@ export const sendJobOffers = async (client: Client) => {
   const channels = (await db.getChannels()) as Channel[];
 
   channels.forEach(async (channel) => {
-    const chan = (await client.channels.fetch(channel.channelID)) as TextChannel;
-
-    if (!chan) {
+    const chan = (await client.channels.fetch(channel.channelID).catch(() => {
       db.unregisterChannel(channel.channelID);
       return;
-    }
+    })) as TextChannel;
 
     const params: fetchJobsParams = {
       departement: channel.departement,
