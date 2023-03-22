@@ -1,10 +1,11 @@
-# JS-Daily 🤖
+# Dev-Hunt 🤖
 
 Ce projet est un bot Discord en TypeScript qui utilise la librairie discord.js. 
+Ce bot permet de récupérer les offres d'emplois publiées concernant le développement informatique sur le site [Pole Emploi](https://www.pole-emploi.fr/).
 
 ## Prérequis 📋
 
-Avant d'exécuter le bot, vous devez créer un fichier `.env` en copiant le fichier `.env.exemple`. Vous devez ensuite remplir les champs `TOKEN` et `CLIENT_ID` avec les informations de votre bot Discord. De plus, vous devez créer un dossier `data` à la racine du projet et y ajouter un fichier `threads.db`.
+Avant d'exécuter le bot, vous devez créer un fichier `.env` en copiant le fichier `.env.exemple`. Vous devez ensuite remplir les champs `TOKEN` et `CLIENT_ID` avec les informations de votre bot Discord.
 
 🔑 `TOKEN` est le token de votre bot Discord. Vous pouvez le trouver dans la page de votre bot sur le site [Discord Developer Portal](https://discord.com/developers/applications).
 
@@ -37,9 +38,7 @@ Le projet est divisé en plusieurs dossiers :
 - `src/events` : contient les événements du bot (ex. `command -> execute`)
 - `src/handlers` : contient les registres des commandes et des événements du bot 
 - `src/modules` : contient les modules du bot 
-- `src/types` : contient les types TypeScript utilisés dans le projet
 - `src/utils` : contient les fonctions utilitaires du bot 
-- `resources` : contient les ressources du bot (questions, réponses, etc.)
 
 
 
@@ -47,16 +46,16 @@ Le projet est divisé en plusieurs dossiers :
 
 ```bash
 # Lancer le bot en arrière plan
-screen -S js-daily
+screen -S dev-hunt
 # Lancer le bot
 ctrl + a + d
 # Revenir sur le bot
-screen -r js-daily
+screen -r dev-hunt
 # Liste des bots en arrière plan
 screen -ls
 ```
 
 # Sources 📖
 
-- Questions : https://github.com/lydiahallie/javascript-questions 
+- Scrap : https://api.gouv.fr/les-api/api_offresdemplois
 
