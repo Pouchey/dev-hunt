@@ -1,5 +1,6 @@
 import { Client } from 'discord.js';
 import cron from 'node-cron';
+import { sendJobOffers } from '../modules/jobs/models';
 
 export default {
   name: 'ready',
@@ -9,8 +10,7 @@ export default {
 
     // every 2 minutes
     cron.schedule(' */2 * * * *', async () => {
-      // TO DO : call the function to get the job offers
-      console.log('running a task every 2 hour');
+      await sendJobOffers(client);
     });
   }
 };
