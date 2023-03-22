@@ -7,7 +7,7 @@ export default {
   execute: async (client: Client) => {
     console.log(`Ready! Logged in as ${client.user?.tag}`);
 
-    // every 30 minutes
+    // every 2 minutes
     cron.schedule(' */2 * * * *', async () => {
       // TO DO : call the function to get the job offers
       console.log('running a task every 2 hour');
