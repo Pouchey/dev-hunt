@@ -22,7 +22,7 @@ export const sendJobOffers = async (client: Client) => {
       lastFetch: channel.lastFetch
     };
 
-    const jobs = await fetchJobs(params);
+    const jobs = await fetchJobs(params)
 
     db.updateLastFetch({ channelID: channel.channelID, lastFetch: Date.now() });
 
